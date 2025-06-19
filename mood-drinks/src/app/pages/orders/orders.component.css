@@ -1,0 +1,28 @@
+.order-table-container {
+    overflow-x: auto;
+    margin-left: 270px;
+    
+
+  }
+.order-table {
+    width: 100%;
+    border-collapse: collapse;
+    
+    th, td {
+      padding: 12px 15px;
+      text-align: left;
+      border: 1px solid #fffefe;
+    }
+    
+    th {
+      background-color: #d4185a;
+      color: #f1f1f1;
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+    }
+    
+    tr:hover {
+      background-color: #f9f9f9;
+    }
+  }

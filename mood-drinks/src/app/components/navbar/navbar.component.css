@@ -1,0 +1,12 @@
+
+input {
+    width: 300px;
+    border-radius: 15px;
+  }
+  .user{
+   
+    background-size: cover;
+    background-position: center;
+    border-radius: 360px;
+  }
+  

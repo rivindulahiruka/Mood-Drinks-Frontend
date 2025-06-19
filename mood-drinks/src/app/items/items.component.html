@@ -1,0 +1,151 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary px-3">
+  <div class="container-fluid">
+    <div class="d-none d-lg-block" style="width: 120px;"></div>
+    <form class="d-flex mx-auto" style="width: 400px;" role="search">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-danger" type="submit">Search</button>
+    </form>
+    <div class="d-flex">
+      <button class="btn btn-danger d-flex align-items-center gap-1" 
+        data-bs-toggle="modal" 
+        data-bs-target="#addItemModal">
+  <i class="bi bi-plus-circle"></i> Add Item
+</button>
+    </div>
+  </div>
+</nav>
+
+
+
+<div class="order-container">
+    <div class="header fw-bold ">
+        <h2>Product Details</h2>
+    </div>
+    <div class="order-table-container">
+        <table class="order-table">
+            <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>NAME</th>
+                  <th>PRICE</th>
+                  <th>CATEGORY</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of menuItems">
+                    <td>{{item.id}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.price}}</td>
+                    <td>{{item.category}}</td>
+                    <td class=""><i class="bi bi-pencil-square text-primary me-4" (click)="openEditModal(item)"  data-bs-toggle="modal" data-bs-target="#updateItemModal"></i>
+                        <i class="bi bi-trash3 text-danger" (click)="deleteItem(item.id)"></i></td>
+                    
+                    
+                </tr>
+               
+              </tbody>
+        </table>
+    </div>
+</div>
+<div class="modal fade" id="updateItemModal" tabindex="-1" aria-labelledby="updateItemModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content border-0 shadow-lg rounded-4">
+      <div class="modal-header bg-danger text-white rounded-top-4">
+        <h5 class="modal-title" id="updateItemModalLabel"><i class="bi bi-pencil-square me-2"></i>Update Item</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <form (ngSubmit)="updateItem()">
+        <div class="modal-body p-4">
+          <!-- Hidden ID -->
+          <input type="hidden" id="item-id" [(ngModel)]="selectedItem.id" name="id" />
+
+          <div class="mb-3">
+            <label for="item-name" class="form-label">Item Name</label>
+            <input type="text" class="form-control" id="item-name" [(ngModel)]="selectedItem.name" name="name" placeholder="Enter item name" required />
+          </div>
+
+          <div class="mb-3">
+            <label for="item-price" class="form-label">Price</label>
+            <input type="number" class="form-control" id="item-price" [(ngModel)]="selectedItem.price" name="price" placeholder="Enter item price" required />
+          </div>
+
+          <div class="mb-3">
+            <label for="item-category" class="form-label">Category</label>
+            <select class="form-select" id="item-category" [(ngModel)]="selectedItem.category" name="category" required>
+              <option selected disabled>Select category</option>
+              <option value="burger">Burger</option>
+              <option value="drink">Drink</option>
+              <option value="side">Side</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label for="item-image" class="form-label">Image</label>
+            <input class="form-control" type="file" (change)="onImageSelected($event)" id="item-image" [(ngModel)]="selectedItem.image" name="image" accept="image/*" />
+          </div>
+        </div>
+
+        <div class="modal-footer border-0 px-4 pb-4">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-danger"><i class="bi bi-check-circle me-1" ></i>Update</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="addItemModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-success text-white">
+        <h5 class="modal-title">Add New Product</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      
+      <form (ngSubmit)="onSubmit()" #productForm="ngForm">
+        <div class="modal-body">
+          <!-- Name Field -->
+          <div class="mb-3">
+            <label class="form-label">Product Name</label>
+            <input type="text" class="form-control" 
+                   [(ngModel)]="productData.name" name="name" required>
+          </div>
+          
+          <!-- Price Field -->
+          <div class="mb-3">
+            <label class="form-label">Price</label>
+            <input type="number" class="form-control" 
+                   [(ngModel)]="productData.price" name="price" required>
+          </div>
+          
+          <!-- Category Dropdown -->
+          <div class="mb-3">
+            <label class="form-label">Category</label>
+            <select class="form-select" [(ngModel)]="productData.category" name="category" required>
+              <option value="" disabled selected>Select Category</option>
+              <option value="signature Elixirs">signature elixirs</option>
+              <option value="fruit Infusions">fruit infusions</option>
+              <option value="Herbal & Wellness">Herbal & Wellness</option>
+              <option value="Iced & Bubble">SIced & Bubbleide</option>
+            </select>
+          </div>
+          
+          <!-- Image Upload -->
+          <div class="mb-3">
+            <label class="form-label">Product Image</label>
+            <input type="file" class="form-control" 
+                   (change)="onFileSelect($event)" accept="image/*" required>
+          </div>
+        </div>
+        
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-success" [disabled]="!productForm.form.valid">
+            Add Product
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

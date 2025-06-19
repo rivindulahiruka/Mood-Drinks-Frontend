@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&display=swap');
+
+* {
+  font-family: 'Raleway', sans-serif;
+}
+
+#sidebar {
+  z-index: 1000;
+  position: fixed;
+  width: 265px;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.9); 
+  backdrop-filter: blur(12px);  
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(220, 20, 60, 0.2); /* Crimson shadow */
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+
+/* Title style */
+.custom-title {
+  color: #e53935; /* Vivid red */
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+/* Navigation styles */
+.nav-link {
+  padding: 12px 15px;
+  font-size: 16px;
+  border-radius: 12px;
+  transition: 0.3s;
+  color: #444;
+  font-weight: 500;
+}
+
+.nav-link i {
+  font-size: 35px;
+}
+
+/* Active and Hover states */
+.nav-link.active,
+.nav-link:hover {
+  background-color: rgba(229, 57, 53, 0.12); /* Light red */
+  color: #e53935 !important;
+  font-weight: 600;
+}
+
+/* Logout Button */
+.btn-dark {
+  padding: 12px; 
+  font-size: 15px;
+  background: linear-gradient(90deg, #e53935, #ff7961); /* Red gradient */
+  border: none;
+  color: white;
+  border-radius: 50px;
+  transition: 0.3s ease;
+}
+
+.btn-dark:hover {
+  background: linear-gradient(90deg, #d32f2f, #ff6659);
+  box-shadow: 0 4px 10px rgba(229, 57, 53, 0.3);
+}

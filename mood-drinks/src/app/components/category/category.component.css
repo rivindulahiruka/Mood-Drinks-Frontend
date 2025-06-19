@@ -1,0 +1,72 @@
+/* Category Section */
+#category-section {
+  background: #fff5f5; /* Very light red/rose background */
+  padding: 30px 40px;
+  max-width: 1000px;
+  margin-top: 20px;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(244, 67, 54, 0.3); /* Soft red shadow */
+  width: 122vh;
+  margin-left: 187px;
+}
+
+/* Title */
+#category-section h4 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #c62828; /* Deep red */
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Category List - Responsive Grid */
+.category-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Category Item */
+.category-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(244, 67, 54, 0.2); /* Red tint */
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  text-align: center;
+  z-index: 1;
+  position: relative;
+}
+
+.category-item img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  margin-bottom: 10px;
+  border-radius: 50%;
+  border: 2px solid #ffe6e6; /* Light rose border */
+  background-color: #fff5f5;
+}
+
+.category-item span {
+  font-weight: 600;
+  font-size: 16px;
+  color: #c62828; /* Deep red text */
+}
+
+/* Hover Effect */
+.category-item:hover {
+  background: #ffe6e6; /* Soft red highlight */
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(211, 47, 47, 0.3); /* Darker red glow */
+  color: #b71c1c;
+}
+
+.category-item:hover span {
+  color: #b71c1c; /* Rich red text on hover */
+}

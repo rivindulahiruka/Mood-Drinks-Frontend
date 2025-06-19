@@ -1,0 +1,69 @@
+
+<div id="order-summary" class="p-3">
+  <!-- Current Order -->
+  <div class="order-items mb-3">
+    <h5 class="fw-bolder">Current Order</h5>
+    <ul class="order-list">
+      <li *ngFor="let item of cartService.getCartItems()" class="order-item">
+        <!-- Item Name & Price -->
+        <div class="item-details">
+          <span class="item-name fw-bold">{{ item.name }}</span>
+          <span class="item-price text-success fw-bold">RS {{ item.price }}</span>
+        </div> 
+
+        <!-- Quantity Controls -->
+        <div class="quantity-controls">
+          <button (click)="decreaseQuantity(item)" class="qty-btn"><i class="bi bi-dash"></i></button>
+          <span class="qty-value">{{ item.quantity }}</span>
+          <button (click)="increaseQuantity(item)" class="qty-btn"><i class="bi bi-plus"></i></button>
+        </div>
+
+        <!-- Remove Button -->
+        <button class="remove-btn" (click)="removeItem(item)">Remove</button>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Order Summary --> 
+  <div class="order-total">
+    <h5><strong>Total: RS {{ cartService.getTotal() }}</strong></h5>
+    <button class="clear-btn" (click)="clearCart()">Clear Cart</button>
+    <button (click)="openModal()" class="checkout-btn">Checkout</button>
+  </div>
+</div>
+
+<!-- Modal -->
+<div *ngIf="modalOpen" class="checkout-modal">
+  <div class="modal-overlay" (click)="closeModal()"></div>
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2>Customer & Order Details</h2>
+      <button class="close-btn" (click)="closeModal()"><i class="bi bi-x-circle-fill"></i></button>
+    </div>
+    
+    <div class="modal-body">
+      <div class="form-group">
+        <input type="text" placeholder="Customer Name" [(ngModel)]="customer.customerName" class="form-input">
+      </div>
+      <div class="form-group">
+        <input type="text" placeholder="Customer Phone Number" [(ngModel)]="customer.phone" class="form-input">
+      </div>
+      <div class="form-group">
+        <input type="text" placeholder="Customer Email" [(ngModel)]="customer.email" class="form-input">
+      </div>
+      
+      <div class="order-items">
+        <div *ngFor="let item of cartService.getCartItems()" class="order-item">
+          <span class="item-name">{{ item.name }} × {{ item.quantity }}</span>
+          <span class="item-price">RS {{ item.price * item.quantity }}</span>
+        </div>
+      </div>
+      
+      <div class="order-total">
+        <h4>Total: RS {{ cartService.getTotal() }}</h4>
+      </div>
+      
+      <button (click)="submitOrder()" class="submit-btn">Place Order</button>
+    </div>
+  </div>
+</div>

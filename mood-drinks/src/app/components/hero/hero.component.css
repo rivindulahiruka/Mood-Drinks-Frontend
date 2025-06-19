@@ -1,0 +1,52 @@
+.hero-section {
+  position: relative;
+  background-image: url('../../../../public/asset/10.jpg'); /* Use a drink-themed image */
+  background-size: cover;
+  background-position: center;
+  height: 35vh;
+  width: 122vh;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 187px;
+}
+
+/* Soft red overlay for aesthetic drinks */
+.hero-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom right, rgba(255, 169, 169, 0.2));
+  backdrop-filter: blur(2px);
+  z-index: 1;
+  border-radius: 20px;
+}
+
+/* Hero title styling */
+.hero-title {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+  padding: 0 20px;
+  font-family: 'Raleway', sans-serif;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 1.5rem;
+  }
+
+  .hero-section {
+    height: 30vh;
+    width: 100%;
+    margin-left: 0;
+    border-radius: 0;
+  }
+}

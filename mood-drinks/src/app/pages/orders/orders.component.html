@@ -1,0 +1,33 @@
+<div class="order-container">
+    <div class="header fw-bold">
+        <h2>Order Details</h2>
+    </div>
+    <div class="order-table-container">
+        <table class="order-table">
+            <thead>
+                <tr>
+                  <th>Order ID</th>
+                  <th>Customer</th>
+                  <th>Items</th>
+                  <th>Total</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let order of order">
+                    <td>{{order.id}}</td>
+                    <td>{{order.customer.customerName}}</td>
+                    <td><div class="items-preview">
+                        <span class="item-badge" *ngFor="let item of order.orderItems.slice(0, 2) ">
+                            {{item.name}} ({{item.quantity}})
+                        </span>
+                    </div></td>
+                    <td>{{order.totalAmount}}</td>
+                    <td class=""><i class="bi bi-pencil-square text-primary me-4"></i>
+                        <i class="bi bi-trash3 text-danger"></i></td>    
+                </tr>
+               
+              </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+.container{
+    display: flex;
+    height: 100vh;
+    gap: 20px;
+}
+.main-content{
+    width: 860px;
+}
+.right-side{
+    width: 290px;
+    height: 100vh;
+    
+}

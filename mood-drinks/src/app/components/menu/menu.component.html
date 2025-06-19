@@ -1,0 +1,23 @@
+<div class="menu-section">
+    <h4 class="fw-bold mt-4 mb-3">Menu Items</h4>
+    <div class="menu-list row g-3">
+      <div class="col-custom-6" *ngFor="let item of filteredMenu">
+        <div class="menu-item card h-100 shadow-sm">
+          <img [src]="item.image" class="card-img-top" alt="{{item.name}}">
+          <div class="card-body p-2">
+            <h6 class="card-title fw-bold mb-1">{{ item.name }}</h6>
+            <div class="d-flex justify-content-between align-items-center mt-2">
+              <span class="price fw-bold text-danger">{{ item.price }}</span>
+              <button
+                class="btn btn-sm btn-danger rounded-pill fw-bold px-2 py-1"
+                (click)="onBuyItem(item)"
+              >
+                Add
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
