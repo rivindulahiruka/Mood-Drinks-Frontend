@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "@angular/flex-layout": "^15.0.0-beta.42",
+    "@angular/material": "^19.2.7",
+    "@ngrx/store": "^19.1.0",
+    "html2canvas": "^1.4.1",
+    "jspdf": "^3.0.1",
+    "jspdf-autotable": "^5.0.2",
+    "ngx-toastr": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/jspdf": "^2.0.0"
+  }
+}
