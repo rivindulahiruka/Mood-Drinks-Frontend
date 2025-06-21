@@ -53,7 +53,7 @@
       </div>
       
       <div class="order-items">
-        <div *ngFor="let item of cartService.getCartItems()" class="order-item">
+        <div *ngFor="let item of cartService.getCartItems()" class="items">
           <span class="item-name">{{ item.name }} × {{ item.quantity }}</span>
           <span class="item-price">RS {{ item.price * item.quantity }}</span>
         </div>

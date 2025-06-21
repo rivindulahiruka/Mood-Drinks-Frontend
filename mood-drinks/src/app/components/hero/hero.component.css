@@ -1,6 +1,6 @@
 .hero-section {
   position: relative;
-  background-image: url('../../../../public/asset/10.jpg'); /* Use a drink-themed image */
+  background-image: url('../../../../public/asset/10.jpg'); 
   background-size: cover;
   background-position: center;
   height: 35vh;

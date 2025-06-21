@@ -94,20 +94,21 @@ export class OrderSummaryComponent {
     const headerGray: [number, number, number] = [249, 250, 251];
   
     // Header with accent bar
-    doc.setFillColor(255, 105, 180); // Hot Pink
-    doc.rect(0, 0, 210, 12, 'F');    
+  doc.setFillColor(255, 0, 0); 
+  doc.rect(0, 0, 210, 12, 'F');
+
     
   
     doc.setFontSize(20);
     doc.setTextColor(...primaryColor);
     doc.setFont('helvetica', 'bold');
-    doc.text('Petal Craft', 105, 25, { align: 'center' });
+    doc.text('Mood Drinks', 105, 25, { align: 'center' });
   
    
     doc.setFontSize(10);
     doc.setTextColor(...darkGray);
     doc.setFont('helvetica', 'normal');
-    doc.text('Healthy Flowers Make Happy Moments', 105, 32, { align: 'center' });
+    doc.text('Sip Beauty, Taste Joy', 105, 32, { align: 'center' });
   
   
     doc.setFontSize(9);
@@ -182,9 +183,9 @@ export class OrderSummaryComponent {
     doc.setTextColor(255, 255, 255);
     doc.text('Thank you for your order!', 105, 287, { align: 'center' });
     doc.setFontSize(8);
-    doc.text('123 Flower Street, Food City • Phone: +94 112 345 678', 105, 292, { align: 'center' });
+    doc.text('123  Street, Food City • Phone: +94 112 345 678', 105, 292, { align: 'center' });
   
-    doc.save(`MOS_Order_${order.customer.customerName}_${Date.now()}.pdf`);
+    doc.save(`MOod Drink_Order_${order.customer.customerName}_${Date.now()}.pdf`);
 }
   
 }

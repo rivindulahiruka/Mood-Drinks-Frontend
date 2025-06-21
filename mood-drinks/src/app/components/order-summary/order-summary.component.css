@@ -6,8 +6,8 @@
   width: 300px;
   height: 100vh;
   background: 
-    linear-gradient(rgba(244, 241, 241, 0.6)), 
-    url('../../../../public/asset/12.jpg'); /* Update with aesthetic drink image */
+    linear-gradient(rgba(244, 241, 241, 0.79)), 
+    url('../../../../public/asset/12.jpg'); 
   background-size: cover;
   background-position: center;
   backdrop-filter: blur(12px);
@@ -37,7 +37,6 @@
 /* Individual Order Item */
 .order-item {
   list-style: none;
-  
   border-bottom: 1px solid #f3c4c4;
   display: flex;
   align-items: center;
@@ -46,6 +45,16 @@
   padding: 10px;
   background: linear-gradient(rgba(194, 72, 72, 0.6)); 
   border-radius: 10px;
+}
+.items {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.3s ease;
+  padding: 10px;
+ 
+
 }
 
 .order-item:hover {
@@ -95,7 +104,7 @@
 }
 
 .qty-btn:hover {
-  background: #fab6c4;
+  background: #d62347;
 }
 
 /* Quantity Number */
@@ -126,9 +135,8 @@
 .order-total {
   margin-top: auto;
   padding-top: 15px;
-  border-top: 2px solid #f3c4c4;
   text-align: center;
-  background: linear-gradient(rgba(164, 48, 48, 0.4)); 
+ 
 }
 
 .clear-btn {
@@ -201,7 +209,7 @@
 }
 
 .modal-content {
-  background: #fff0f3;
+  background: #f9ecec;
   padding: 30px;
   border-radius: 15px;
   width: 90%;
